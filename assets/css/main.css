@@ -1,0 +1,84 @@
+/* reset css */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.main{
+    background-image: linear-gradient(135deg, rgb(165, 165, 255), rgb(250, 182, 182));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form{
+    background-color: #fff;
+    min-width: 200px;
+    margin: 32px auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px #ac8888;
+}
+.form__heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 0;
+}
+.form__heading--logo{
+    width: 100px;
+    border-radius: 50%;
+}
+.form__heading--title{
+    padding: 4px 12px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgb(224, 37, 37);
+    -webkit-text-stroke: 1px #000;
+}
+.form__heading--text{
+    font-size: 1rem;
+    margin: 4px 8px;
+    color: #2e0303;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #000;
+    text-align: center;
+}
+.form__container{
+    padding: 4px 24px 16px;
+}
+.form__group{
+    margin-bottom: 16px;
+}
+.form__group--title{
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+}
+.form__group--input{
+    width: 100%;
+    padding: 8px;
+    outline: none;
+    border: 1px solid #ccc
+}
+.form__footer{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+    padding: 0 24px;
+}
+.btn-submit{
+    padding: 8px 16px;
+    flex: 1;
+    background-color: rgb(255, 0, 0);
+    color: #fff;
+    border: none;
+}
+.form__group.show-error .form__group--input{
+    border-color: red;
+}
+.form__group.show-error .form__group--message{
+    color: red;
+    font-size: 0.8rem;
+}
