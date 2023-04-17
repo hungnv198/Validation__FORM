@@ -25,11 +25,7 @@
                 <div class="form__group">
                     <label for="input-name" class="form__group--title">Họ và tên</label>
                     <br>
-                    <div>
-                        <div>
-                            <input type="text" id="input-name" placeholder="Ex: Nguyễn Văn A" class="form__group--input" name="fullname">
-                        </div>
-                    </div>
+                    <input type="text" id="input-name" placeholder="Ex: Nguyễn Văn A" class="form__group--input" name="fullname">
                     <span class="form__group--message"></span>
                 </div>
                 <!-- Tạo các form-group -->
@@ -37,6 +33,25 @@
                     <label for="input-email" class="form__group--title">Email</label>
                     <br>
                     <input type="email" id="input-email" placeholder="Ex: abc@gmail.com" class="form__group--input" name="email">
+                    <span class="form__group--message"></span>
+                </div>
+                <!-- Tạo các form-group -->
+                <div class="form__group">
+                    <label for="input-province" class="form__group--title">Tỉnh, thành phố</label>
+                    <br>
+                    <select id="input-province" class="form__group--input" name="province">
+                        <option value="">--Chọn Tỉnh / TP ---</option>
+                        <option value="Hà Nội">Hà Nội</option>
+                        <option value="Hưng Yên">Hưng Yên</option>
+                        <option value="Hải Dương">Hải Dương</option>
+                    </select>
+                    <span class="form__group--message"></span>
+                </div>
+                <!-- Tạo các form-group -->
+                <div class="form__group">
+                    <label for="input-avatar" class="form__group--title">Ảnh đại diện</label>
+                    <br>
+                    <input type="file" id="input-avatar" class="form__group--input" name="avatar">
                     <span class="form__group--message"></span>
                 </div>
                 <!-- Tạo các form-group -->
@@ -53,34 +68,56 @@
                     <input type="password" id="input-repassword" placeholder="Nhập lại mật khẩu" class="form__group--input" name="repassword">
                     <span class="form__group--message"></span>
                 </div>
+                <!-- Thêm tag radio và checkbox -->
+                <div class="form__group">
+                    <label for="gender" class="form__group--title">Giới tính</label>
+                    <br>
+                    <div>
+                        <input type="checkbox" class="form__group--input" name="gender" value="Nam">
+                        Nam
+                    </div>
+                    <div>
+                        <input type="checkbox"  class="form__group--input" name="gender" value="Nữ">
+                        Nữ
+                    </div>
+                    <div>
+                        <input type="checkbox"  class="form__group--input" name="gender" value="Khác">
+                        Khác
+                    </div>
+                    <span class="form__group--message"></span>
+                </div>
             </div>
             <div class="form__footer">
-                <button type="submit" class="btn-submit">Đăng Ký</button>
+                <button class="btn-submit">Đăng Ký</button>
             </div>
         </form>
     </div>
-    <script src="./assets/javascript/main.js"></script>
+    <script src="./assets/javascript/Validation.js"></script>
+    <!-- Mong muốn output nhận được-->
     <script>
-        //Mong muốn
-        Validator({
+        Validation({
             form: "#form-1",
-            formGroup: ".form__group",
-            errorSelector: ".form__group--message",
+            formGroupSelector: ".form__group",
+            errorSelector: '.form__group--message',
+            passwordSelector: '#input-password',
             rules: [
-                Validator.isRequired("#input-name"),
-                // Validator.isRequired("#input-email"),
-                // Validator.isEmail("#input-email"),
-                Validator.minLength("#input-password", 6),
-                Validator.isRequired("#input-repassword"),
-                Validator.isConfirm("#input-repassword", function(){
-                    return document.querySelector('#form-1 #input-password').value;
-                }, 'Mật khẩu nhập lại không chính xác!'),
+                // Validation.isRequired('#input-name'),
+                // Validation.isRequired('#input-email'),
+                Validation.isRequired('#input-avatar'),
+                // Validation.isEmail('#input-email'),
+                // Validation.minLength('#input-password', 5),
+                // Validation.isRequired('#input-repassword'),
+                // Validation.isRequired('#input-province'),
+                // Validation.isRequired('input[name="gender"]'),
+                // Validation.checkPassword('#input-repassword', function(){
+                //     return document.querySelector('#form-1 #input-password').value;
+                // }, "Mật khẩu nhập vào không chính xác"),
             ],
             onSubmit: function(data){
-                // Call API
-                console.log(data)
+                console.log(data);
+                // Thực hiện call API
             }
-        });
+        })
     </script>
 </body>
 </html>

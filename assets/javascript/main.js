@@ -140,3 +140,23 @@ Validator.isConfirm = function(selector, getConfirmValue, message){
         }
     };
 }
+//Mong muốn
+Validator({
+    form: "#form-1",
+    formGroup: ".form__group",
+    errorSelector: ".form__group--message",
+    rules: [
+        Validator.isRequired("#input-name"),
+        // Validator.isRequired("#input-email"),
+        // Validator.isEmail("#input-email"),
+        Validator.minLength("#input-password", 6),
+        Validator.isRequired("#input-repassword"),
+        Validator.isConfirm("#input-repassword", function(){
+            return document.querySelector('#form-1 #input-password').value;
+        }, 'Mật khẩu nhập lại không chính xác!'),
+    ],
+    onSubmit: function(data){
+        // Call API
+        console.log(data)
+    }
+});

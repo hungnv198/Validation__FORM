@@ -78,7 +78,13 @@ html{
 .form__group.show-error .form__group--input{
     border-color: red;
 }
+.form__group.show-access .form__group--input{
+    border-color: green;
+}
 .form__group.show-error .form__group--message{
     color: red;
     font-size: 0.8rem;
+}
+.Gen div{
+    text-align: center;   
 }
