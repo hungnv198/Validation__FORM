@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation_2</title>
+    <!-- link file css -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+    <div class="main">
+        <form action="" class="form" id="form-1">
+            <div class="form__container">
+                <!-- Tạo các form-group -->
+                <div class="form__group">
+                    <label for="input-name" class="form__group--title">Họ và tên</label>
+                    <br>
+                    <input type="text" id="input-name" rules = "required" placeholder="Ex: Nguyễn Văn A" class="form__group--input" name="fullname">
+                    <span class="form__group--message"></span>
+                </div>
+                <!-- Tạo các form-group -->
+                <div class="form__group">
+                    <label for="input-email" class="form__group--title">Email</label>
+                    <br>
+                    <input type="email" id="input-email" rules = "required|email" placeholder="Ex: abc@gmail.com" class="form__group--input" name="email">
+                    <span class="form__group--message"></span>
+                </div>
+                <!-- Tạo các form-group -->
+                <div class="form__group">
+                    <label for="input-password" class="form__group--title">Nhập mật khẩu</label>
+                    <br>
+                    <input type="text" id="input-password" rules = "required|min:6" placeholder="Nhập mật khẩu" class="form__group--input" name="password">
+                    <span class="form__group--message"></span>
+                </div>
+            </div>
+            <div class="form__footer">
+                <button class="btn-submit">Đăng Ký</button>
+            </div>
+        </form>
+    </div>
+    <script src="./assets/javascript/Validation_2.js"></script>
+    <script>
+        //1. Mong muốn, thành quả đạt được
+        var registerForm = new Validation('#form-1');
+        registerForm.onSubmit = function(formData){
+            console.log(formData);
+        }
+    </script>
+</body>
+</html>
